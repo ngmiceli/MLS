@@ -1,0 +1,6 @@
+<%= link_to "Show Public Profile", show_path %>
+<% if @edit_page.nil? || @edit_page == "personal" %>
+  <%= render 'layouts/student/myinfo/personal' %>
+<% else %>
+  <%= render 'layouts/test' %>
+<% end %>

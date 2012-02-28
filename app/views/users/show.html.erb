@@ -1,0 +1,5 @@
+<% if @show_page.nil? || @show_page == "personal" %>
+  <%= render 'layouts/student/show/personal' %>
+<% else %>
+  <%= render 'layouts/test' %>
+<% end %>

@@ -1,0 +1,14 @@
+<div class = "content" id="sub-info-personal" >
+	<% if @user.name_visible %>
+		<p><strong> Name: </strong> <%= @user.name %><br /></p>
+	<% end %>
+	<% if @user.birthday_visible %>
+		<p><strong> Born: </strong> <%= @user.birthday %><br /></p>
+	<% end %>
+	<% if @user.sex_visible %>
+		<p><strong> Sex: </strong> <%= @user.sex %><br /></p>
+	<% end %>
+	<% if @user.zip_visible %>
+		<p><strong> Zip: </strong> <%= @user.zip %><br /></p>
+	<% end %>
+</div>

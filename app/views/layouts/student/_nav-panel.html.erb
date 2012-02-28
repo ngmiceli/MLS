@@ -1,0 +1,13 @@
+ <div id = "nav-panel">
+   <ul id="navigation">
+     <% if @user == current_user %>
+       <li> <%= link_to "Welcome", welcome_path, :class => "box_half_round navigation blank", :id => "Welcome", :onmouseover => "updateHelpBox('Welcome')", :onmouseout => "resetHelpBox()" %></li>
+       <li> <a href="messages" class="box_half_round navigation blank" id="Messages" onmouseover="updateHelpBox('Messages')" onmouseout="resetHelpBox()"> Messages </a></li>
+       <li> <%= link_to "MyInfo", myinfo_path + "/personal", :class => "box_half_round navigation blank", :id => "Info", :onmouseover => "updateHelpBox('Info')", :onmouseout => "resetHelpBox()" %></li>
+       <li> <a href="professions" class="box_half_round navigation blank" id="Professions" onmouseover="updateHelpBox('Professions')" onmouseout="resetHelpBox()"> My Professions </a></li>
+       <li> <a href="bookmarks" class="box_half_round navigation blank" id="Bookmarks" onmouseover="updateHelpBox('Bookmarks')" onmouseout="resetHelpBox()"> Bookmarks </a></li>
+       <li> <a href="tools" class="box_half_round navigation blank" id="Tools" onmouseover="updateHelpBox('Tools')" onmouseout="resetHelpBox()"> Tools &amp; Links </a></li>
+     <% end %>
+     &nbsp;
+  </ul>
+</div>

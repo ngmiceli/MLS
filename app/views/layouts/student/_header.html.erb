@@ -1,0 +1,34 @@
+<div id="header" >
+  <a href="main.html"> 
+    <% logo = image_tag("/media/imgs/logo.svg", :alt => "My Life Spheres Logo", :id => "logo") %>
+    <%= link_to logo, root_path %>
+  </a>
+  <div id = "header-right">
+    <ul class="topnav" id="menu">
+      <% if signed_in? %>
+         <li> <a href ="/"> MySphere </a></li>
+      <% end %>
+      <li>	
+        <a href="#">Menu</a>   
+        <ul class="subnav">
+	    <li ><%= link_to "About", about_path %></li>
+	    <li><%= link_to "Help", help_path %></li>
+	    <% if signed_in? %>
+	      <li ><%= link_to "Settings", edit_user_path(current_user) %></li>  
+	      <li ><%= link_to "Sign Out", signout_path, :method => :delete %></li>
+	    <% else %>
+	      <li ><%= link_to "Sign In", signin_path %></li>
+	      <li ><%= link_to "Sign Up", signup_path %></li>
+	    <% end %>
+	</ul>      
+      </li>  
+    </ul>
+    <div id = "messages">
+      <a class="blank" href="messages-public"> <p class="messages" id = "public-messages" onmouseover = "updateHelpBox('public-messages')" onmouseout="resetHelpBox()">  ? </p> </a> 
+      <a class="blank" href="messages-private"> <p class="messages" id = "private-messages" onmouseover="updateHelpBox('private-messages')" onmouseout="resetHelpBox()"> ? </p> </a>
+      <a id="sphereslink" href="#" onmouseover="updateHelpBox('sphereslink')" onmouseout="resetHelpBox()"> <img src="/media/imgs/profile/sphereslink.png" alt="Link to the LifeSpheres"/> </a>
+    </div>
+  </div>
+  <p id = "catch-image"> </p>
+</div>
+		
