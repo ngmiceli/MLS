@@ -1,14 +1,9 @@
 <div class = "content" id="sub-info-personal" >
-	<% if @user.name_visible == "1" %>
-		<p><strong> Name: </strong> <%= @user.name %><br /></p>
-	<% end %>
-	<% if @user.birthday_visible == "1" %>
-		<p><strong> Born: </strong> <%= @user.birthday %><br /></p>
-	<% end %>
-	<% if @user.sex_visible == "1" %>
-		<p><strong> Sex: </strong> <%= @user.sex %> <br /></p>
-	<% end %>
-	<% if @user.zip_visible == "1" %>
-		<p><strong> Zip: </strong> <%= @user.zip %><br /></p>
-	<% end %>
+	<h1> <%= @user.name %> </h1>
+	<p class="label"> Spheres Interested In: </p>
+	None right now <br />
+	<p class="label"> About Me:</p>
+	<textarea rows=5 cols=60 readonly="readonly"> (Nothing is written here yet) </textarea>
+	<p> Official Resume: <a href="#"> None Uploaded Yet </a></p>
+	
 </div>

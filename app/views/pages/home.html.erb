@@ -1,22 +1,22 @@
-<% if signed_in? %>
-  <table class="front" summary="For signed-in users">
-    <tr>
-      <td class="main">
-        <h1 class="micropost">What's up?</h1>
-        <%= render 'shared/micropost_form' %>
-      </td>
-      <td class="sidebar round">
-        <%= render 'shared/user_info' %>
-      </td>
-    </tr>
-  </table>
-<% else %>
-
-  <h1>MyLifeSpheres</h1>
-
-  <p>
-    Welcome to the homepage!
-  </p>
-
-  <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
-<% end %>
+        <div class="studentsignup">
+            <h1>Students</h1>
+            <span class="signupbutton">
+                <%= link_to "", signup_path, :alt => "Student Sign Up" %>
+            </span>
+        </div>
+        <div class="video">
+            <object width="420" height="315"><param name="movie" value="http://www.youtube.com/v/a1Y73sPHKxw?version=3&amp;hl=en_US"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/a1Y73sPHKxw?version=3&amp;hl=en_US" type="application/x-shockwave-flash" width="420" height="315" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+        </div>
+        <div class="professionalsignup">
+            <h1>Professionals</h1>
+            <span class="signupbutton">
+                <a href="#" alt="Professional Sign Up"></a>
+            </span>
+        </div>
+        <div class="clear"></div>
+        <div class="spheres">
+             <a href="#" class="spheresbutton" alt="Go to Spheres page"></a>
+        </div><!-- end main layout -->
+        <div class="clear"></div>
+    </div>
+  </div>

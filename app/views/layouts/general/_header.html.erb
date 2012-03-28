@@ -1,16 +1,20 @@
-<header>
-  <% logo = image_tag("/media/imgs/logo.svg", :alt => "My Life Spheres Logo", :class => "round") %>
-  <%= link_to logo, root_path %>
-  <nav class="round">
-    <ul>
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Help", help_path %></li>
-	<% if signed_in? %>
-	  <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-	  <li><%= link_to "Sign Out", signout_path, :method => :delete %></li>
-	<% else %>
-	  <li><%= link_to "Sign In", signin_path %></li>
-	<% end %>
-    </ul>
-  </nav>
-</header>
+  <div class="wrap">
+    <div class="header">&nbsp;
+        <div class="signin">
+            <ul>
+                <li>
+                <a href="index.html">Sign in</a>
+                <ul>
+                  <li>
+                    <%= form_for(:session, :url => sessions_path) do |f| %>
+                      <%= f.text_field :email, :id => "login-email"%> <br />
+                      <%= f.password_field :password, :id => "login-password"%> <br />
+                      <%= f.check_box :remember, :value => "Remember" %> Remember Me? &nbsp; &nbsp; <%= f.submit "Log in" %>
+                    <% end %>
+                  </li>
+                </ul>
+                </li>
+            </ul>
+        </div>
+	<div class="logo"></div>
+    </div><!-- end header -->
