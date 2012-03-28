@@ -1,0 +1,159 @@
+body {
+    background-color: #e1e1e1;
+    font-family: helvetica, tahoma, arial, sans-serif;
+}
+
+a, a:link, a:active, a:focus, a:hover, a:visited {
+    text-decoration: none;
+    color: #000;
+}
+
+.header {
+    width: auto;
+}
+
+.signin {
+    float: right;
+    padding: 3px;
+
+}
+
+.signin ul {
+    text-align: right;
+    margin: 0;
+}
+
+.signin li {
+    list-style-type: none;
+    margin: 0;
+    display: block;
+    float: right;
+    background-position: 100%;
+}
+
+.signin li a:link {
+    background-color: #8f8f8f;
+    font-size: 14px;
+    color: #000;
+    text-decoration: none;
+    padding: 6px;
+    border-radius: 1em 1em 0 0;
+    -webkit-border-radius: 1em 1em 0 0;
+    -moz-border-radius: 1em 1em 0 0;
+}
+
+/* re-do with javascript
+.signin li a:hover {
+    border-radius: 1em 1em 0 0;
+    -webkit-border-radius: 1em 1em 0 0;
+    -moz-border-radius: 1em 1em 0 0;
+} */
+
+.signin li > ul li {
+    border: 1px solid #8f8f8f;
+    border-radius: 1em 0 1em 1em;
+    -webkit-border-radius: 1em 0 1em 1em;
+    -moz-border-radius: 1em 0 1em 1em;
+    padding: 5px;
+    margin-top: 5px;
+    font-size: 10px;
+    
+    display: none;
+}
+
+.signin li:hover > ul li {
+    display: block;
+}
+
+.header {
+    width: auto;
+}
+
+.dropdown {
+    visibility: hidden;
+}
+
+.wrap {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+.logo {
+    width: 1000px;
+    height: 100px;
+    background-image: url(../media/imgs/logo.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.studentsignup {
+    float: left;
+    width: 270px;
+    height: 315px;
+    margin: 0px;
+    padding-right: 20px;
+    vertical-align: middle;
+    text-align: right;
+}
+
+.studentsignup h1 {
+    margin-top: 100px;
+    margin-bottom: 10px;
+}
+
+.video {
+    float: left;
+    width: 420px;
+    height:315px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.professionalsignup {
+    float: left;
+    width: 270px;
+    height: 315px;
+    margin: 0px;
+    padding-left: 20px;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.professionalsignup h1 {
+    margin-top: 100px;
+    margin-bottom: 10px;
+}
+
+.studentsignup > .signupbutton {
+    float: right;
+}
+
+.signupbutton a:link {
+    margin:0px;
+    display: block;
+    background-image: url(../media/imgs/home/signupbutton.png);
+    width: 150px;
+    height: 50px;
+}
+
+.signupbutton a:hover {
+    background-image: url(../media/imgs/home/signupbutton_hover.png);
+}
+
+.clear {
+    clear: both;
+}
+
+.spheres {
+    
+}
+
+.spheresbutton {
+   width: 1000px;
+    height: 100px;
+	display:block;
+    background-image: url(../media/imgs/home/spheresbutton.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
