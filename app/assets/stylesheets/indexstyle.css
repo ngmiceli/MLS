@@ -157,3 +157,16 @@ a, a:link, a:active, a:focus, a:hover, a:visited {
     background-position: center;
     background-repeat: no-repeat;
 }
+
+.footer{
+    width: 1000px;
+    float: left;
+    text-align: center;
+    font-size: 14px;
+    color: #383838;
+}
+
+.footer li{
+    display:inline;
+    list-style-type: none;
+}

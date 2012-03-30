@@ -14,7 +14,10 @@
 </head>
 
 <body>
-  <%= render 'layouts/general/header' %>
-  <%= yield %>
+  <div class="wrap">
+    <%= render 'layouts/general/header' %>
+    <%= yield %>
+    <%= render 'layouts/general/footer' %>
+  </div>
 </body>
 </html>

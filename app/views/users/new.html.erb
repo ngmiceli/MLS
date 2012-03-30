@@ -1,24 +1,24 @@
-<h1>Sign up</h1>
-
-<%= form_for(@user) do |f| %>
-  <%= render 'shared/error_messages', :object => f.object %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirmation" %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+        <div class="signupwrap">
+            <h1>Student Sign Up</h1>
+            <%= form_for(@user) do |f| %>
+            <div class="formlabels">
+                First Name:<br />
+                <!--Last Name:<br />-->
+                Email:<br />
+                Password:<br />
+                Confirm Password:<br />
+                <!--Zip Code:<br />-->
+            </div>
+            <div class="signupform">
+                <%= f.text_field :name %><br />
+                <!--<input type="text" name="lastName" /><br />-->
+                <%= f.text_field :email %><br />
+                <%= f.password_field :password %><br />
+                <%= f.password_field :password_confirmation %><br />
+                <!--<input type="text" name="zipcode" size="5" length="5" /><br />-->
+            </div>
+          <%= f.submit "Continue", :class=>"center"%>
+          &nbsp;
+        </div>
+        <%= render 'shared/error_messages', :object => f.object %>
+          <% end %>
