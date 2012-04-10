@@ -1,17 +1,17 @@
         <div class="signupwrap">
-            <h1>Student Sign Up</h1>
+            <h1 class="signup">Student Sign Up</h1>
             <%= form_for(@user) do |f| %>
             <div class="formlabels">
                 First Name:<br />
-                <!--Last Name:<br />-->
+                Last Name:<br />
                 Email:<br />
                 Password:<br />
                 Confirm Password:<br />
                 <!--Zip Code:<br />-->
             </div>
             <div class="signupform">
-                <%= f.text_field :name %><br />
-                <!--<input type="text" name="lastName" /><br />-->
+                <%= f.text_field :first_name %><br />
+                <%= f.text_field :last_name %><br />
                 <%= f.text_field :email %><br />
                 <%= f.password_field :password %><br />
                 <%= f.password_field :password_confirmation %><br />

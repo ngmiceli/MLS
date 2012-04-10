@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def welcome
     @user = User.find(params[:id])
     @type = "student"
-      @title = @user.name
+      @title = @user.full_name
     if current_user != @user
       render 'show'
     end
@@ -29,8 +29,9 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
 	  sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
-      redirect_to @user
+      flash[:success] = "Welcome to MyLifeSpheres! Confirm your information, and tell us a little more about yourself."
+      flash[:note] = "To change this information later, just go to Settings under the Menu in the top-right corner."
+      redirect_to "/users/" + @user.id.to_s + "/myinfo/personal"
     else
       @title = "Sign up"
       render 'new'
@@ -38,25 +39,26 @@ class UsersController < ApplicationController
   end
   
   def edit
-	@title = @user.name
-	@type = "student"
-	@edit_page = params[:edit_page]
-	if @edit_page.nil?
-	  redirect_to "/users/" + params[:id] + "/myinfo/personal"
-	end
+    @title = @user.full_name
+    @type = "student"
+    @edit_page = params[:edit_page]
+    if @edit_page.nil?
+      redirect_to "/users/" + params[:id] + "/myinfo/education"
+    end
   end
   
   def show
     @user = User.find(params[:id])
     @type = "student"
-    @title = @user.name
+    @title = @user.full_name
     @show_page = params[:show_page]
     if @show_page.nil?
-      redirect_to "/users/" + params[:id] + "/show/personal"
+      redirect_to "/users/" + params[:id] + "/show/education"
     end
   end
   
   def update
+	@edit_page = "personal"
 	if @user.update_attributes(params[:user])
 		flash[:success] = "Profile updated."
 		redirect_to @user

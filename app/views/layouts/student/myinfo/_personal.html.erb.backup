@@ -1,0 +1,69 @@
+<div class = "content" id="sub-info-personal" >
+	<%= form_for(@user, :id => "form-info-personal") do |f| %>
+          <%= render 'shared/error_messages', :object => f.object %>	  
+	  
+	  <h3> <em> Basic </em> </h3>
+          <table class="indent move-up" border="0" cellpadding="5">
+            <tr>
+              <td width="10%"></td>
+              <td class = "input-area"></td>
+              <td class="center-text" width="25%"> <small> <em> <%= f.label :visible %> </em> </small> </td>
+            </tr>
+            <tr>
+              <div class="field">
+                <td> <%= f.label :name %> </td>
+                <td> <%= f.text_field :name %> </td>
+                <td> <span onmouseover="updateHelpBox('visible-invisible')" onmouseout="resetHelpBox()"> <%= f.check_box :name_visible %> </span> </td>
+              </div>
+            </tr>
+            
+	    <tr> 
+              <td> <%= f.label :birthday %> </td>
+              <td>
+                <%= f.date_select :birthday, :start_year => Time.now.year - 100, :end_year => Time.now.year %>
+              </td>
+              <td> <span onmouseover="updateHelpBox('visible-invisible')" onmouseout="resetHelpBox()"> <%= f.check_box :birthday_visible %> </span> </td> 
+            </tr>
+            <tr>
+              <td <%= f.label :sex %> </td>
+              <td>
+                <%= f.select :sex, options_for_select([["Male", 1], ["Female", 2]], @user.sex) %>
+              </td>
+              <td> <span onmouseover="updateHelpBox('visible-invisible')" onmouseout="resetHelpBox()"> <%= f.check_box :sex_visible %> </span> </td>
+            </tr>
+  	      	<tr> 
+            	<td> <%= f.label :zip %> </td>
+                <td> <%= f.text_field :zip, :id => "zip", :maxlength => "5" %> </td>
+  		<td> <span onmouseover="updateHelpBox('visible-invisible')" onmouseout="resetHelpBox()"> <%= f.check_box :zip_visible %> </span> </td> 
+            </tr>
+        </table>
+        
+        
+        <hr class="spaced" />
+        
+     <!--   <h3> <em> Contact </em> </h3>
+        <table class="indent move-up" border="0" cellpadding="5">
+        	<tbody id="emails">
+				<tr> <td>&nbsp;  </td> </tr>
+				<tr>
+					<th> Add Email: </th>
+					<td> <input id = "email" name="email" class="no-enter" type="text" size="35" /> </td>
+	                <td class="center-text"> <a href="#" onclick="addEmail(event)" class="stupid-link"> <img src="/media/imgs/profile/add.png" /> </a> </td>
+                </tr>
+            </tbody>
+			<tbody id = "phones">
+            	<tr> <td>&nbsp;  </td> </tr>
+				<tr>
+					<th> Add Phone: </th>
+						<td> <input id = "phone" name="phone" type="text" size="11" maxlength="14" /> </td> 
+    	            <td class="center-text"> <a href="#" onclick="addPhone(event)" class="stupid-link"> <img src="/media/imgs/profile/add.png" /> </a>   </td>
+<!--                    <img src="media/imgs/profile/add.png" />  </td>  
+				</tr> -->
+           </tbody>
+	</table> 
+        
+        <div class="actions">
+          <%= f.submit "Save Changes!" %>
+        </div>
+      <% end %>
+</div>

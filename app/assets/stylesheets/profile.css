@@ -1,9 +1,14 @@
-body{
+* {
+	margin: 0;
+}
+
+html, body{
 	font-family:Arial, Helvetica, sans-serif;
 /*	background:url(../media/imgs/profile/old/background.gif) #bfbff0; */
 /*	background: url(../media/imgs/profile/bg2.jpg) no-repeat top black; /*#cfcff5;*/
 /*	background:#d6d8fe url('../media/imgs/profile/spheres.png') left bottom no-repeat fixed; */
 	margin:0px;
+	height:100%;
 }
 
 /*body.c{
@@ -18,17 +23,10 @@ div#header{
 	background: url(../media/imgs/bannerbg.png) repeat-x;
 }
 
-img#logo{
+div#header-left{
 	position:absolute;
 	left:0;
 	border:none;
-}
-
-p#catch-image{
-	background:url(../media/imgs/catch-image.png);
-	height: 83px;
-	width: 182px;
-	margin: 0 auto;
 }
 
 div#header-right{
@@ -36,7 +34,11 @@ div#header-right{
 	right:0;
 	margin-right:25px;
 	margin-top:8px;
-	height:0px;
+}
+
+a#logo{
+	display:block;
+	width:200px;
 }
 
 p.messages{
@@ -64,11 +66,44 @@ a#logout{
 	padding:0px 20px 5px 15px;
 }
 
+
+div#messages{
+	position:absolute;
+	left:300px;
+	width:150px;
+}
+
+p#public-messages{
+	background:url(../media/imgs/profile/public-messages.png) no-repeat;
+	padding:16px 0px 0px 35px;
+	margin: 10px 5px 0px -10px;
+	position:relative;
+	top:-70px;
+	z-index:0;
+}
+
+p#private-messages{
+	background:url(../media/imgs/profile/private-messages.png) no-repeat;
+	margin: 15px;
+	padding:16px 0px 0px 29px;
+	margin-left:-36px;
+	margin-top: 10px;
+	position:relative;
+	top:-70px;
+	z-index:0;
+}
+
+a#sphereslink{
+	position:relative;
+	top:-55px;
+	left:-15px;
+}
+
 /** DROP DOWN MENU **/
 #menu
 {
+	margin: 35% 0;
 	padding: 0px;
-	margin: -5px 0px -30px 0px;
 	font-size: 1.1em;
 	/*background: #111;
         background: -moz-linear-gradient(#444, #111);
@@ -87,13 +122,11 @@ a#logout{
 #menu li
 {
         float: left;
-        padding: 0 0 10px 0;
-        position: relative;
+	color:white;	 
 }
 
 #menu a
 {
-	padding-right: 3em;
         color: white;
         font: 1.1em;
         text-decoration: none;       
@@ -120,11 +153,11 @@ a#logout{
 {
     list-style: none;
     margin: 0;
+    margin-top: 5px;
     padding: 0;
     display: none;
     position: absolute;
-    top: 35px;
-    left: 0;
+    left: 30%;
     z-index: 99999;
     background: #444;
     background: -moz-linear-gradient(#444, #111);
@@ -141,7 +174,7 @@ a#logout{
 #menu ul li
 {
     float: none;
-    margin: 0;
+    margin: 0;    
     padding: 0;
     display: block;
     -moz-box-shadow: 0 1px 0 #111111, 0 2px 0 #777777;
@@ -194,7 +227,7 @@ a#logout{
 {
     content: '';
     position: absolute;
-    left: 15px;
+    right: 15px;
     top: -8px;
     width: 0;
     height: 0;
@@ -230,45 +263,12 @@ a#logout{
 
 /** END DROP DOWN MENU **/
 
-div#messages{
-	margin:90px 0px 0px 10px;
-}
-
-p#public-messages{
-	background:url(../media/imgs/profile/public-messages.png) no-repeat;
-	padding:16px 0px 0px 35px;
-	margin: 10px 5px 0px -10px;
-	position:relative;
-	top:-70px;
-	z-index:0;
-}
-
-p#private-messages{
-	background:url(../media/imgs/profile/private-messages.png) no-repeat;
-	margin: 15px;
-	padding:16px 0px 0px 29px;
-	margin-left:-36px;
-	margin-top: 10px;
-	position:relative;
-	top:-70px;
-	z-index:0;
-}
-
-a#sphereslink{
-	position:relative;
-	top:-55px;
-	left:-15px;
-}
 
 /* END HEADER */
 
 /*//\\//\\//\\//\\*/
 
 /* BEGIN BODY */
-
-div#nav-panel{
-	float:left;
-}
 
 ul#navigation{
 	font-size:1em;
@@ -285,16 +285,81 @@ div#page-wrapper
 	position:relative;
 	z-index:3;
 	width:1021px;
-	margin:0 auto;	
+	margin:0 auto -30px;	
 	margin-top:-20px;
+	height: auto !important;
+}
+
+div.name-bar{
+	padding-left:10px;
+	font-size: 35px;
+}
+
+div.name-bar a{
+	color:blue;
+}
+
+div.name-bar a:hover{
+	color:red;
+}
+
+span.edit-info{
+	padding-left:30px;
+	font-size:20px;
+	color:blue;
+}
+
+div.content-area
+{
+	padding:20px;
+	max-width: 900px;
+}
+
+.float-left
+{
+	float:left;
+}
+
+.float-right{
+	float:right;
+}
+
+div.content{
+	min-width:100%;
+	margin: 10px auto;
+}
+
+
+div.my-page{
+	min-height:300px;
+	min-width: 500px;
+	max-width: 800px;
+	border:solid;
+}
+
+div.show-page{
+	min-height:300px;
+	min-width:500px;
+	max-width:900px;
+	margin: 0 auto;
+	width: 60%;
+	border: solid;
+}
+
+div.show-page h1, p{
+	margin-top: 10px;
+}
+
+div.spaced{
+	padding:10px;
 }
 
 div#nav-panel
 {
 	float:left;
-	margin-top:5em;
-	width:156px;
+	margin-top:75px;
 	margin-left:20px;
+	width:120px;
 }
 
 
@@ -302,430 +367,94 @@ li a.navigation, li a.nav{
 	display:block;
 	height:1.6em;
 	padding: 10px 0px 0px 10px;
-	color:black;
+	color:blue;
 	text-decoration:none;
 	font-size:18px;
 }
 
 
  li a.navigation:active, li a.navigation:hover, li a.current, li a.nav:active, li a.nav:hover{
-	background:url(../media/imgs/profile/box-texture.gif) repeat;
-/*	box-shadow: 0em 0em 2em #333;*/ /* Commented for simplicity */
+	color: red;
 }
 	
+div.checkbox-img{
+	background-image: url("../media/imgs/profile/checkbox_unchecked.png");
+	background-position: left;
+	background-repeat: no-repeat;
+	width: 96px;
+	height:96px;
+	float: left;
+	margin-left:20px;
+}
 
-div#content-panel
+div.checkbox{
+	font-size: 2em;
+	padding: 0.5em 1em;
+	width: 700px;
+	height:96px;
+	margin-left:100px;
+}
+
+span.normal-text{
+	font-size: medium;
+}
+
+div.footer, .push
 {
-	position:relative;
-	float:left;
-	width:660px; 
-	margin-top:1.5em;
-	min-height:300px;
-	height:400px;
-}
-
-div#content-panel-nav{
-	position:relative;
-	z-index:0;
-	display:block; 	
-	margin-bottom:-8px;
-	margin-top:-15px;
-}
-
-div#content-panel-nav.tall{
-	height:90px;	
-}
-
-div#content-panel-nav ul li a{
-	
-	position:relative;
-	z-index:0;
-	top:0px;
-	display:block;
-	float:left;
-	width:85px;
-	height:35px;
-	background:white;
-	border : 1px solid #000;
-	border-bottom: none;
-	margin: 0px 0px 0px 1px;
-	text-align:center;
-	padding-top: 15px;
-}
-
-div#content-panel-nav ul li a.active{
-	background: yellow;
-}
-
-div#content-panel-nav ul li a.wide{
-	width:100px;	
-}
-
-div#content-panel-body-frame
-{
-	padding: 1px 30px 30px 30px;
-	background:url(../media/imgs/profile/box-texture.gif) repeat;
-}
-
-div#content-panel-body
-{
-	position:relative;
-	z-index:1;
-	padding: 15px 15px 15px 15px;
-	background:#FFFFFF;
-	min-width:565px;
-	min-height: 750px;
-}
-
-div.reset-top{
-	top:0px;
-}
-
-div.sink-top{
-	top:-25px;
-}
-
-img#warning{
-	position:relative;
-	height:378;
-	width:326;
-	margin:0 auto;
-}
-
-
-p.buffer
-{
-	display:block;
-	height:1px;
-} 
-
-.buffer2
-{
-	display:block;
+	position: relative;
 	height:30px;
+	margin: 0 auto;
+	width:200px;
+	text-align: center;
 }
 
-h1.content-text
-{
-	padding: .5em .5em 0em .5em;
-	font-style:italic;
+.center-text{
+	text-align: center;
 }
 
-p.content-text	
-{
-	padding: .5em .5em .5em .5em;
-	font-size:1em;
-	line-height:1.5em;
-	margin:0px;
-	text-align:justify;
+ul.square-tabs{
+	border-bottom: solid 2px;
+	height:2.2em;
+	padding:0px;
+	
 }
 
-div#right-panel
-{
-	padding-top:5.5em;
-	margin-left: 25px;
+ul.square-tabs li{
 	float:left;
-	width:160px;
-
+	margin:5px 10px;
+	padding: 2px 4px;
+	border: solid 1px;
+	display: block;
+	background: #ddd;
 }
 
-p#help-box
-{
-	font-size:1em;
-	text-align:center;	
-	padding: .5em .5em .5em .5em;
-	min-height: 9em;
-	height: 9em;
-	display: table-cell;
-	vertical-align: middle;
-	border: solid;
-}
-
-img#ad
-{
-	margin-top:1em;	
-}
-
-div#footer
-{
-	margin:0 px;	
-	margin-top:3em;
-}
-
-
-.center-text
-{
-	text-align:center;	
-}
- 
- img#load-icon
- {
-	position:absolute;
-	left:610px;
-	top:10px;
- }
- 
- .invisible{
-	 visibility:hidden;
- }
- 
- .visible{
-	 visibility:visible;
- }
- 
- div.content
- {
-	padding:0px 30px;
-	display:block;
-	min-height:600px;
- }
- 
- div.wide-content{
-	padding:2em 0em 2em 0em;
-	display:block;
-	min-height:600px;
- }
-
- div#sub_welcome{
-	font-size:2em;
- }
- 
- p.welcome_checked{
-    display:block;
-	height:100px;
-	vertical-align:text-bottom;
-	padding-top:30px;
-	padding-left:100px;
-	background:url(../media/imgs/profile/checkbox_checked.png) no-repeat;
-	font-size:1.2em;
- }
- 
- 
- p.welcome_unchecked{
-	display:block;
-	height:100px;
-	vertical-align:text-bottom;
-	padding-top:30px;
-	padding-left:100px;
-	background:url(../media/imgs/profile/checkbox_unchecked.png) no-repeat;
-	font-size:1.2em;
- }
-
- a#back-arrow{
-	float:left;
- }
- 
- th.name{
-	vertical-align:top;
-	text-align:right;
- }
- 
- table.collapse{
-	border-collapse:collapse;
- }
- 
- td.text{
-	border-style:solid;
-	border-width:1px;	
-	border-color:black;
- }
- 
- tr.buffer{
-	font-size:5px;
- }
- 
- form.formatted p{
-	margin-left:1em; 
- }
- 
- .watermark {
-   color: #999;
-}
-
-input.underline{
-	border:0;
-	background-color:transparent;
-	border-bottom:1px solid gray;
-	text-align:center;
-}
-
-hr.spaced{
-	margin:1.5em 0em 1.5em 0em;
-}
-
-input#save-info-personal, input#save-info-edu, input#save-info-work, input#save-info-interests{
-	position:relative;
-	display:block;
-	width:10em;
-	margin:10px auto;	
-}
-
-.indent{
-	margin-left:10px;	
-}
-
-.double-indent{
-	margin-left:25px;	
-}
-
-div#sub-info-personal form table tr td span, div#sub-info-edu  form table tr td span,
-div#sub-info-work  form table tr td span, div#sub-info-interests  form table tr td span{
-	position:relative;
-	display:block;
-	width:32px;
-	margin:0 auto;
-}
-
-.move-up{
-	margin-top:-20px;
-}
-
-div#sub-college form table, div#sub-email form table, div#sub-phone form table{
-	margin:0;
-}
-
-.middle{
-	vertical-align:middle;
-}
-
-td.label{
-	width: 20%;	
-}
-
-td.input-area{
-	width: 35%	
-}
-
-td.button-area{
-	width: 10%	
-}
-
-textarea.compact{
-	font-family:Arial, Helvetica, sans-serif;
-}
-
-table.standard{
-	width:500px;	
-}
-
-td textarea{
-	resize:vertical;	
-}
-
-label.error{
-	font-size:small;
+ul.square-tabs li:hover > a{
 	color:red;
-	font-style:italic;
 }
 
-div#sub-bookmarks-professions ul
+ul.square-tabs li a{
+	
+	color:blue;
+	text-decoration: none;
+}
+
+form.edit_user p, hr
 {
-	list-style-image:url(../media/imgs/profile/bookmark.png);	
-	font-size:x-large;
+	margin: 10px;
 }
 
-div#sub-bookmarks-professions ul li ul
-{
-	list-style:circle;	
-	font-size:medium;
+div.flash.success{
+	font-size: large;
+	text-align: center;
+	padding:10px;
+	margin:5px;
+	border: solid 1px;
+	border-color: green;
 }
 
-div#sub-bookmarks-college ul
-{
-	list-style:disc;	
-	font-size:x-large;
+div.flash.note{
+	font-style: italic;
+	text-align: center;
+	margin: 5px;
 }
 
-div#sub-bookmarks-college ul li ul
-{
-	list-style:circle;	
-	font-size:medium;
-}
-
-div#sub-bookmarks-college ul li ul li
-{
-	padding:3px 0px 5px 0px;	
-}
-
-/** Testing (Microposts, etc.) **/
-
-table.profile {
-  width: 100%;
-  margin-bottom: 0;
-}
-
-td.main {
-  width: 70%;
-  padding: 1em;
-}
-
-td.sidebar {
-  width: 30%;
-  padding: 1em;
-  vertical-align: top;
-  background: #ffc;
-}
-
-.profile img.gravatar {
-  border: 1px solid #999;
-  margin-bottom: -15px;
-}
-
-div.field, div.actions {
-  margin-bottom: 10px;
-}
-
-.field_with_errors {
-  margin-top: 10px;
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
-.field_with_errors label {
-  color: #fff;
-}
-
-#error_explanation {
-  width: 400px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-}
-
-#error_explanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: -7px;
-  background-color: #c00;
-  color: #fff;
-}
-
-#error_explanation p {
-  color: #333;
-  margin-bottom: 0;
-  padding: 5px;
-}
-
-#error_explanation ul li {
-  font-size: 12px;
-  list-style: square;
-}
-
-ul.users {
-  margin-top: 1em;
-}
-
-.users li {
-  list-style: none;
-}
-
-p.label {
-  font-size: large;
-  margin-top:30px;
-  margin-bottom: 5px;
-}

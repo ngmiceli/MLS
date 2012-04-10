@@ -1,1 +1,5 @@
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"> </script> 
+<% if @edit_page == "personal" %>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"> </script>
+  <%= javascript_include_tag "jq/jquery.EasyCharCounter.min.js" %>
+  <%= javascript_include_tag "profile" %>
+<% end %>

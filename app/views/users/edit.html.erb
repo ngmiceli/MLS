@@ -1,6 +1,13 @@
-<%= link_to "Show Public Profile", show_path %>
-<% if @edit_page.nil? || @edit_page == "personal" %>
-  <%= render 'layouts/student/myinfo/personal' %>
-<% else %>
-  <%= render 'layouts/test' %>
-<% end %>
+<div class="my-page">
+  
+  <% unless (@edit_page == "personal") %>
+    <ul class="square-tabs">
+      <li><a href="#"> Education </a></li>
+      <li><a href="#"> Work </a></li>
+      <li><a href="#"> Interests </a></li>
+    </ul>
+  <% end %>
+  <div class="spaced">
+    <%= render 'layouts/student/myinfo/' + @edit_page %>
+  </div>
+</div>

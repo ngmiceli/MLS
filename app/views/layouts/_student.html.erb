@@ -4,33 +4,32 @@
 	<title><%= title %></title>
 	<%= csrf_meta_tag %>
 	<%= render 'layouts/student/stylesheets' %>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"> </script> 
+	<%= render 'layouts/student/javascripts' %>
   </head>
   
-  <body class="c">
+  <body>
     <%= render 'layouts/student/header' %>
     <div id = "page-wrapper">
-      <%= render 'layouts/student/nav-panel' %>
-      <div id = "content-panel">
-		<div id = "content-panel-body-frame" class="box_round2 box_shadow3">
-			<div id = "content-panel-nav" class="tall">
-				&nbsp;
-				<% if params[:action] == "edit" or params[:action] == "show" %>
-					<%= render "layouts/student/myinfo/content_panel_nav" %>
-				<% end %>
-			</div>
-			<div id = "content-panel-body" class="box_shadow1 box_round2 reset-top">
-				<% flash.each do |key, value| %>
-					<div class="flash <%= key %>"><%= value %></div>
-				<% end %>
-				<%= yield %>
-			</div>
-		</div>
-		<%= render 'layouts/student/footer' %>
-     </div>
-     
-     <%= render 'layouts/student/right-panel' %>
-     
-    <%= debug(params) if Rails.env.development? %>
+      <% if @show_page || @user != current_user%>
+	<%= yield %>
+      <% else %>
+	<%= render 'layouts/student/nav-panel' %>
+	<div class= "content-area float-left">
+	  <div class= "name-bar">
+	    <span title="Click to see your public profile"><%= link_to @user.full_name, show_path%></span>
+	    <span class="edit-info"><%= link_to "(Edit Info)", myinfo_path%></span>
+	  </div>
+	  <div class="content">
+	    <% flash.each do |key, value| %>
+	      <div class="flash <%= key %>"><%= value %></div>
+	    <% end %>
+	    <%= yield %>
+	  </div>
+	</div>
+      <% end %>
+      <div class="push"></div>
+    </div>
+    <%= render 'layouts/student/footer' %>
+
   </body>
 </html>

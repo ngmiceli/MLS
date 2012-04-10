@@ -11,22 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221154424) do
-
-  create_table "microposts", :force => true do |t|
-    t.string   "content"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
+ActiveRecord::Schema.define(:version => 20120406145226) do
 
   create_table "users", :force => true do |t|
-    t.string   "name"
+    t.string   "first_name"
     t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.string   "encrypted_password"
     t.string   "salt"
     t.boolean  "admin",              :default => false
@@ -34,6 +25,8 @@ ActiveRecord::Schema.define(:version => 20120221154424) do
     t.integer  "sex"
     t.string   "zip"
     t.text     "visible"
+    t.string   "description"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

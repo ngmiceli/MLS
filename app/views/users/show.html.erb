@@ -1,5 +1,32 @@
-<% if @show_page.nil? || @show_page == "personal" %>
-  <%= render 'layouts/student/show/personal' %>
-<% else %>
-  <%= render 'layouts/test' %>
-<% end %>
+<div class="content-area">
+  <div class="content">
+    <div class="show-page spaced">
+      <% if @user == current_user %>
+        <%= link_to "Back to Your Sphere", @user, :class => "float-right" %>
+      <% end %>
+      <h1> <%= @user.full_name %> </h1>      
+      <p class="label"> Spheres Interested In: </p>
+      None right now <br />
+      <br />
+      <p class="label"> About Me:</p>
+      <textarea rows=5 cols=60 readonly="readonly"> <%= @user.description %> </textarea>
+      <p> Official Resume:  None Uploaded Yet </p>
+      <br />
+      
+      <ul class="square-tabs">
+        <li><a href="#"> Education </a></li>
+        <li><a href="#"> Work </a></li>
+        <li><a href="#"> Interests </a></li>
+      </ul>
+      
+      <div class="spaced">
+        <% if @show_page.nil? || @show_page == "education" %>
+          <%= render 'layouts/student/show/education' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
