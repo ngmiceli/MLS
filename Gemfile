@@ -5,10 +5,11 @@ gem 'rails', '3.2.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-#gem 'sqlite3', '~> 1.3.4' 
-gem 'pg'
+gem 'sqlite3', '~> 1.3.4' 
+#gem 'pg'
 gem 'will_paginate', '3.0'
 gem 'gravatar_image_tag'
+gem 'friendly_id', '~> 4.0.1'
 
 # Gems used only for assets and not required
 # in production environments by default.

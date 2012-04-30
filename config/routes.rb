@@ -1,8 +1,8 @@
 MLS::Application.routes.draw do
-  
-  get "sessions/new"
 
   resources :users, :only => [:index, :new, :create, :destroy, :update, :edit]
+  resources :college_profiles, :only => [:create, :destroy]
+  resources :school_profiles, :only => [:create, :destroy]
   resources :sessions, :only => [:new, :create, :destroy]
   resources :microposts, :only => [:create, :destroy]
 
@@ -14,11 +14,13 @@ MLS::Application.routes.draw do
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
   
-  match 'users/:id' => "Users#welcome"
+  match 'users/:id'         => "Users#welcome"
   match 'users/:id/welcome' => "Users#welcome", :as => "welcome"
-  match 'users/:id/myinfo' => "Users#edit", :as => "myinfo"
+  match 'users/:id/myinfo'  => "Users#edit",    :as => "myinfo"
+  match 'users/:id/myinfo/addcollege' => "College_Profiles#new"
+  match 'users/:id/myinfo/addcollege/create' => "College_Profiles#create"
   match 'users/:id/myinfo/:edit_page' => "Users#edit"
-  match 'users/:id/show' => "Users#show", :as => "show"
+  match 'users/:id/show'    => "Users#show",    :as => "show"
   match 'users/:id/show/:show_page' => "Users#show"
   
   root :to => 'pages#home'

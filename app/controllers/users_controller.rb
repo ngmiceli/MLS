@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_filter :authenticate, :only => [:index, :edit, :update]
+  before_filter :validate_params
+  before_filter :authenticate, :only => [:edit, :update]
   before_filter :correct_user, :only => [:edit, :update]
-  before_filter :admin_user,   :only => :destroy
+  before_filter :admin_user,   :only => [:index, :destroy]
   
   def index
     @title = "All Users"
@@ -16,7 +17,6 @@ class UsersController < ApplicationController
     if current_user != @user
       render 'show'
     end
-    #@microposts = @user.microposts.paginate(:page => params[:page])
   end
   
   def new
@@ -29,9 +29,8 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
 	  sign_in @user
-      flash[:success] = "Welcome to MyLifeSpheres! Confirm your information, and tell us a little more about yourself."
-      flash[:note] = "To change this information later, just go to Settings under the Menu in the top-right corner."
-      redirect_to "/users/" + @user.id.to_s + "/myinfo/personal"
+      flash[:success] = "Welcome to MyLifeSpheres!"
+      redirect_to @user
     else
       @title = "Sign up"
       render 'new'
@@ -39,9 +38,11 @@ class UsersController < ApplicationController
   end
   
   def edit
+    @user = User.find(params[:id])
     @title = @user.full_name
     @type = "student"
     @edit_page = params[:edit_page]
+    do_education if @edit_page == "education"
     if @edit_page.nil?
       redirect_to "/users/" + params[:id] + "/myinfo/education"
     end
@@ -52,6 +53,8 @@ class UsersController < ApplicationController
     @type = "student"
     @title = @user.full_name
     @show_page = params[:show_page]
+    @colleges = @user.college_profile.all
+    @schools = @user.school_profile.all	
     if @show_page.nil?
       redirect_to "/users/" + params[:id] + "/show/education"
     end
@@ -76,6 +79,25 @@ class UsersController < ApplicationController
   end
   
   private
+  
+	def do_education
+	  @colleges = @user.college_profile.all
+	  @schools = @user.school_profile.all
+	  @college = current_user.college_profile.build unless current_user.college_profile.count >= 3
+	  @school = current_user.school_profile.build unless current_user.school_profile.count >= 3
+	  @college_errors = session[:college_errors]
+	  session[:college_errors] = nil
+	  @school_errors = session[:school_errors]
+	  session[:school_errors] = nil
+	  store_location
+	end
+  
+	def validate_params
+	  if params[:id] != nil and params[:id].match(/^\d/)
+	   raise ActionController::RoutingError.new('Not Found')
+	  end
+	end
+      
 	def correct_user
 	  @user = User.find(params[:id])
 	  redirect_to(root_path) unless current_user?(@user)

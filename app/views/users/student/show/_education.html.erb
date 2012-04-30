@@ -1,0 +1,15 @@
+<% if @user.college_profile.any? %>
+	<h2> College: </h2>
+	<%= render @colleges %>
+<% else %>
+	<p> No colleges listed </p>
+<% end %>
+
+<br />
+
+<% if @user.school_profile.any? %>
+	<h2> High School:</h2>
+	<%= render @schools %>
+<% else %>
+	<p> No high schools listed </p>
+<% end %>

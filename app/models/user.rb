@@ -1,23 +1,33 @@
 class User < ActiveRecord::Base
+	include FriendlyId
+  
+	friendly_id :username
+	
 	attr_accessor :password
-	attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :birthday, :sex, :zip, :description
-	#attr_accessible :name_visible, :email_visible, :birthday_visible, :sex_visible, :zip_visible
+	attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :birthday, :sex, :zip, :description, :username
   
-	#store :visible, accessors: [:name_visible, :email_visible, :birthday_visible, :sex_visible, :zip_visible]
-  
-	#has_many :microposts, :dependent => :destroy
+	has_many :college_profile, :dependent => :destroy
+	has_many :school_profile, :dependent => :destroy
   
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+	username_regex = /^[a-z][a-z0-9\-_]*[a-z0-9]$/i
 
 	validates :first_name,  :presence 	=> true,
 				:length 	=> { :maximum => 50 }
 	validates :last_name,   :presence 	=> true,
 				:length 	=> { :maximum => 50 }		
-	validates :email, :presence 	=> true,
+	validates :email, :presence 		=> true,
 			:format  		=> { :with => email_regex },
 			:uniqueness 		=> { :case_sensitive => false }
 			
 	validates :description, :length		=> { :maximum => 300 }
+	validates :username,	:presence	=> true,
+				:format		=> { :with => username_regex },
+				:uniqueness	=> { :case_sensitive => false },
+				:length		=> { :within => 3..25}
+	
+	validate :limit_colleges
+	validate :limit_schools
 					
 	# Automatically create the virtual attribute 'password_confirmation'.
 	validates :password,
@@ -50,6 +60,18 @@ class User < ActiveRecord::Base
 	end
 	
 	private
+		
+		def limit_schools
+			if school_profile.count >= 3
+				errors[:base] << "You can only have up to 3 high schools"
+			end
+		end
+		
+		def limit_colleges
+			if college_profile.count >= 3
+				errors[:base] << "You can only have up to 3 colleges"
+			end
+		end
 		
 		def encrypt_password
 		  self.salt = make_salt unless has_password?(password)

@@ -1,0 +1,10 @@
+<div class="school_profile">
+    <h3><%= college_profile.name %></h3>
+    <%= college_profile.degree %>, <%= college_profile.gpa %>, <%= college_profile.year %>
+    
+    <% if current_user?(college_profile.user) %>
+      <%= link_to "delete", college_profile, method:  :delete,
+                                             confirm: "Are you sure you want to delete " + college_profile.name + "?",
+                                             title:   college_profile.name %>
+    <% end %>
+</div>

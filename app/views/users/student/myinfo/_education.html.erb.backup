@@ -1,0 +1,27 @@
+<h2> Colleges: </h2>
+<br />
+<%if @user.college_profile.count > 0 
+    @user.college_profile.each do |college| %>
+        <p><h3><%= college.name %></h3><br />
+        <%= college.degree %>, <%= college.gpa %>, <%= college.year %>
+        </p>
+    <% end
+  end %>
+<%if @user.college_profile.count < 3
+    link_to "Add College", new_college_profile_path
+  end %>
+
+<hr /> 
+
+<h2> High Schools: </h2>
+<br />
+<%if @user.school_profile.count > 0 
+    @user.school_profile.each do |school| %>
+        <p><h3><%= school.name %></h3><br />
+        <%= school.program %>, <%= school.gpa %>, <%= school.year %>
+        </p>
+    <% end
+  end %>
+<%if @user.school_profile.count < 3 %>
+  <a href="#"> Add High School </a>
+<% end %>

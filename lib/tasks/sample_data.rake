@@ -5,6 +5,7 @@ namespace :db do
     admin = User.create!(:first_name => "Example",
                  :last_name => "User", 
                  :email => "example@mls.com",
+                 :username => "the-boss",
                  :password => "foobar",
                  :password_confirmation => "foobar",
                  :birthday => Date.new(1990,6,16),
@@ -14,9 +15,12 @@ namespace :db do
     99.times do |n|
       email = "example-#{n+1}@mls.com"
       password  = "password"
+      lastName = Faker::Name.last_name
+      userName = "user-" + n.to_s
       User.create!(:first_name => Faker::Name.first_name,
-                   :last_name => Faker::Name.last_name,
+                   :last_name => lastName,
                    :email => email,
+                   :username => userName,
                    :password => password,
                    :password_confirmation => password,
                    :birthday => Date.new(1989,1,31),

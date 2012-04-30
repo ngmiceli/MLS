@@ -3,7 +3,7 @@ body {
     font-family: helvetica, tahoma, arial, sans-serif;
 }
 
-a, a:link, a:active, a:focus, a:hover, a:visited {
+.header a, .header a:link, .header a:active, .header a:focus, .header a:hover, .header a:visited {
     text-decoration: none;
     color: #000;
 }
@@ -174,7 +174,7 @@ a, a:link, a:active, a:focus, a:hover, a:visited {
     -moz-border-radius: 1em;
     /*background-color: #FFF;*/
     text-align: center;
-    color: #8f8f8f;
+    
 }
 
 h1.signup {
@@ -249,7 +249,45 @@ h1.signup {
     margin: 0 auto;
 }
 
+a{
+    color:blue;
+}
+
 /* End Signup Page */
+
+div.flash.error, div.flash.notice{
+	font-size: large;
+	text-align: center;
+	padding:10px;
+	margin:5px;
+	border: solid 1px;
+	border-color: red;
+}
+
+div.notes{
+    display: none;
+    font-size:small;
+    margin:20px;
+    text-align: left;
+    position: absolute;
+    top:-5px;
+    right:-300px;
+    left:200px;
+    background: white;
+    border: solid 1px;
+    border-radius: 5px;
+    padding:5px;
+}
+
+div.has-notes{
+    display: block;
+    position: relative;
+    font-size: normal;
+}
+
+div.has-notes:hover > div{
+    display:block;
+}
 
 .footer{
     width: 1000px;

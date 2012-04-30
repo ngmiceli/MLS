@@ -1,0 +1,44 @@
+<h2> Colleges: </h2>
+
+<%if @user.college_profile.any? %>
+  <%= render @colleges %>
+<%end%>
+<br />
+
+<%if @user.college_profile.count < 3 %>
+  <h3><em> Add new College: </em></h3>
+  <div class="spaced">
+    <%= render 'shared/print_errors', errors: @college_errors %>
+    <%= form_for @college do |f| %>
+      <%= f.label :name %>    <%= f.text_field :name %>    <br />
+      <%= f.label :degree %>  <%= f.text_field :degree %>  <br />
+      <%= f.label :gpa %>     <%= f.text_field :gpa, :size => 3 %>     <br />
+      <%= f.label :year %>    <%= f.text_field :year, :size => 3%>    <br />
+      <%= f.submit "Create College" %>
+    <%  end %>
+  </div>
+<%end %>
+
+
+<hr /> 
+
+<h2> High Schools: </h2>
+
+<%if @user.school_profile.any? %>
+  <%= render @schools %>
+<%end%>
+<br />
+
+<%if @user.school_profile.count < 3 %>
+  <h3><em> Add new High School: </em></h3>
+  <div class="spaced">
+    <%= render 'shared/print_errors', errors: @school_errors %>
+    <%= form_for @school do |f| %>
+      <%= f.label :name %>    <%= f.text_field :name %>    <br />
+      <%= f.label :program %>  <%= f.text_field :program %>  <br />
+      <%= f.label :gpa %>     <%= f.text_field :gpa, :size => 3 %>     <br />
+      <%= f.label :year %>    <%= f.text_field :year, :size => 3%>    <br />
+      <%= f.submit "Create High School" %>
+    <%  end %>
+  </div>
+<%end %>

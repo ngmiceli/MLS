@@ -1,0 +1,30 @@
+<div id="header" >
+  <div id="header-left">
+      <% logo = image_tag("/media/imgs/logo.svg", :alt => "My Life Spheres Logo") %>
+      <%= link_to logo, root_path %>
+     <div id = "messages">
+      <a class="blank" href="#"> <p class="messages" id = "public-messages">  ? </p> </a> 
+      <a class="blank" href="#"> <p class="messages" id = "private-messages"> ? </p> </a>
+    </div>
+  </div>
+  <div id = "header-right">
+     <% if signed_in? %>
+       <ul id="menu">
+          <li> <a href ="/"> MySphere </a></li>
+          <li>&nbsp;|&nbsp;</li>
+          <li>      
+             <a href="#">Menu</a>   
+             <ul class="subnav">
+                <li ><%= link_to "About", about_path %></li>
+                <li><%= link_to "Help", help_path %></li>
+                <li ><%= link_to "Settings", edit_user_path(current_user, :edit_page => "personal") %></li>  
+                <li ><%= link_to "Sign Out", signout_path, :method => :delete %></li>
+             </ul>      
+          </li>  
+       </ul>
+     <% else %>
+     <h2 class="signup"> <%= link_to "Sign up", signup_path %> or <%= link_to "sign in", signin_path %> now!</p>
+     <% end %>
+  </div>
+</div>
+                

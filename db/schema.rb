@@ -11,24 +11,46 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120406145226) do
+ActiveRecord::Schema.define(:version => 20120427032828) do
+
+  create_table "college_profiles", :force => true do |t|
+    t.string   "name"
+    t.string   "degree"
+    t.integer  "year"
+    t.decimal  "gpa"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "school_profiles", :force => true do |t|
+    t.string   "name"
+    t.string   "program"
+    t.integer  "year"
+    t.decimal  "gpa"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "email"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.datetime "created_at",                                            :null => false
+    t.datetime "updated_at",                                            :null => false
     t.string   "encrypted_password"
     t.string   "salt"
-    t.boolean  "admin",              :default => false
+    t.boolean  "admin",                             :default => false
     t.date     "birthday"
     t.integer  "sex"
     t.string   "zip"
     t.text     "visible"
-    t.string   "description"
+    t.text     "description",        :limit => 255
     t.string   "last_name"
+    t.string   "username",                          :default => "user", :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end

@@ -5,6 +5,7 @@
                 First Name:<br />
                 Last Name:<br />
                 Email:<br />
+                Username:<br />
                 Password:<br />
                 Confirm Password:<br />
                 <!--Zip Code:<br />-->
@@ -13,12 +14,23 @@
                 <%= f.text_field :first_name %><br />
                 <%= f.text_field :last_name %><br />
                 <%= f.text_field :email %><br />
-                <%= f.password_field :password %><br />
+                <div class="has-notes"><%= f.text_field :username, :value => ""%><br />
+                  <div class="notes">
+                    <p> <strong> Username:</strong> Your username is a unique name where your public profile will be found on the web. <br />It must start with a letter, and can include letters, numbers, dashes, and underscores.<br />
+                        If your username is "jon-smith02", then your public profile will be found at www.mylifespheres.com/users/jon-smith02</p>
+                  </div>
+                </div>
+                <div class="has-notes"><%= f.password_field :password %><br />
+                  <div class="notes">
+                    <p> <strong>Note:</strong> Keep in mind that a password does not have to be a "word" - it can be a phrase too! <br />The password "an OFFA he cant refuse" is easier to remember than "p3g#6Sh", and fairly secure too.  </p>
+                  </div>
+                </div>
                 <%= f.password_field :password_confirmation %><br />
                 <!--<input type="text" name="zipcode" size="5" length="5" /><br />-->
             </div>
           <%= f.submit "Continue", :class=>"center"%>
-          &nbsp;
+          
         </div>
+        
         <%= render 'shared/error_messages', :object => f.object %>
           <% end %>

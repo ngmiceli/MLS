@@ -3,17 +3,17 @@
   <head>
 	<title><%= title %></title>
 	<%= csrf_meta_tag %>
-	<%= render 'layouts/student/stylesheets' %>
-	<%= render 'layouts/student/javascripts' %>
+	<%= render 'users/student/stylesheets' %>
+	<%= render 'users/student/javascripts' %>
   </head>
   
   <body>
-    <%= render 'layouts/student/header' %>
+    <%= render 'users/student/header' %>
     <div id = "page-wrapper">
       <% if @show_page || @user != current_user%>
 	<%= yield %>
       <% else %>
-	<%= render 'layouts/student/nav-panel' %>
+	<%= render 'users/student/nav-panel' %>
 	<div class= "content-area float-left">
 	  <div class= "name-bar">
 	    <span title="Click to see your public profile"><%= link_to @user.full_name, show_path%></span>
@@ -29,7 +29,7 @@
       <% end %>
       <div class="push"></div>
     </div>
-    <%= render 'layouts/student/footer' %>
+    <%= render 'users/student/footer' %>
 
   </body>
 </html>
